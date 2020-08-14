@@ -182,14 +182,15 @@ for r in range(0,len(sortprogramlist)):
 	textfile.write('\ndesktop={}'.format(sortprogramlist[r][1]))
 	textfile.write('\nxposition={}'.format(int(''.join(filter(str.isdigit, sortprogramlist[r][3])))))
 	#Correct for frame extent value if it exists
-	if 'Frame extents' in sortprogramlist[r][-1] and not sortprogramlist[r][2]=='modfly':# and not sortprogramlist[r][2]=='QED':
-		corrval=int(sortprogramlist[r][7].split(',')[2])
-		correcty= int(''.join(filter(str.isdigit, sortprogramlist[r][4])))-corrval
-		textfile.write('\nyposition={}'.format(correcty))
-	else:
-		textfile.write('\nyposition={}'.format(int(''.join(filter(str.isdigit, sortprogramlist[r][4])))))
+	#if 'Frame extents' in sortprogramlist[r][-1] and not sortprogramlist[r][2]=='modfly':# and not sortprogramlist[r][2]=='QED':
+	#	corrval=int(sortprogramlist[r][7].split(',')[2])
+	#	correcty= int(''.join(filter(str.isdigit, sortprogramlist[r][4])))-corrval
+	#	textfile.write('\nyposition={}'.format(correcty))
+	#else:
+	textfile.write('\nyposition={}'.format(int(''.join(filter(str.isdigit, sortprogramlist[r][4])))))
 	textfile.write('\nxsize={}'.format(int(''.join(filter(str.isdigit, sortprogramlist[r][5])))))
 	textfile.write('\nysize={}'.format(int(''.join(filter(str.isdigit, sortprogramlist[r][6])))))
+	textfile.write('\ngravity=10')
 	textfile.write('\n')
 
 
